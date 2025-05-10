@@ -6,7 +6,7 @@
 #
 # This file may be distributed under the terms of the GNU GPLv3 license.
 import logging, os, ast
-from . import aip31068_spi, hd44780, hd44780_spi, st7920, uc1701, menu
+from . import hd44780, hd44780_spi, st7920, st7920_hd, uc1701, uc1701_hd, menu
 
 # Normal time between each screen redraw
 REDRAW_TIME = 0.500
@@ -14,11 +14,10 @@ REDRAW_TIME = 0.500
 REDRAW_MIN_TIME = 0.100
 
 LCD_chips = {
-    'st7920': st7920.ST7920, 'emulated_st7920': st7920.EmulatedST7920,
-    'hd44780': hd44780.HD44780, 'uc1701': uc1701.UC1701,
+    'st7920': st7920.ST7920, 'emulated_st7920': st7920.EmulatedST7920, 'st7920hd': st7920_hd.ST7920HD,
+    'hd44780': hd44780.HD44780, 'uc1701': uc1701.UC1701, 'uc1701hd': uc1701_hd.UC1701HD,
     'ssd1306': uc1701.SSD1306, 'sh1106': uc1701.SH1106,
-    'hd44780_spi': hd44780_spi.hd44780_spi,
-    'aip31068_spi':aip31068_spi.aip31068_spi
+    'hd44780_spi': hd44780_spi.hd44780_spi
 }
 
 # Storage of [display_template my_template] config sections
